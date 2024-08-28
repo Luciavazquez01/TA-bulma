@@ -3,70 +3,201 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TA BULMA</title>
+    <title>Trello</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="ta.css" />
   </head>
   <body>
-    <h1 class="title">Trello</h1>
-    <div class="columns is-gapless">
-      <div class="column">
-        <div class="box">
-          <h2 class="title">Backlog</h2>
-          <div class="box">Project A</div>
-          <div class="box">Project B</div>
-          <div class="box">Project C</div>
-          <div class="box">Project M</div>
-          <div class="box">Project K</div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="box">
-          <h2 class="title">To Do</h2>
-          <div class="box">Project G</div>
-          <div class="box">Project P</div>
-          <div class="box">Project F</div>
-          <div class="box">Project Z</div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="box">
-          <h2 class="title">In Progress</h2>
-          <div class="box">Project W</div>
-          <div class="box">Project T</div>
-          <div class="box">Project U</div>
-          <div class="box">Project Q</div>
-          <div class="box">Project V</div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="box">
-          <h2 class="title">Blocked</h2>
-          <div class="box">Project M</div>
-          <div class="box">Project N</div>
-          <div class="box">Project L</div>
-          <div class="box">Project O</div>
-          <div class="box">Project P</div>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="box">
-          <h2 class="title">Done</h2>
-          <div class="box">Project X</div>
-          <div class="box">Project T</div>
-          <div class="box">Project L</div>
-          <div class="box">Project O</div>
-          <div class="box">Project P</div>
-        </div>
-      </div>
+    
+    <header class="header">
+      <h1 class="title">Trello</h1>
+     
+      <div class="navbar-wraper">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                  Workspaces
+                  </a>
+                </div>
       
-      <!-- </div> -->
-    </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                  Recent
+                  </a>
+                </div>
+      
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                    Marked
+                  </a>
+                </div>
+      
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                    Templates
+                    </a>
+
+
+                  </div>
+    </header>
+    <main>
+      <button id="add-task-btn" class="button is-primary">Nueva Tarea</button>
+      <div class="columns is-gapless">
+        <div class="column">
+          <div class="box column-box">
+            <h2 class="title">Backlog</h2>
+            <div class="box">Project W</div>
+            <div class="box">Project T</div>
+            <div class="box">Project U</div>
+            <div class="task-list"></div>
+            <button
+              class="button is-small is-light add-card-btn"
+              data-status="Backlog"
+            >
+              + Add a card
+            </button>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box column-box">
+            <h2 class="title">To Do</h2>
+            <div class="box">Project Q</div>
+            <div class="box">Project V</div>
+            <div class="task-list"></div>
+            <button
+              class="button is-small is-light add-card-btn"
+              data-status="To Do"
+            >
+              + Add a card
+            </button>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box column-box">
+            <h2 class="title">In Progress</h2>
+            <div class="box">Project N</div>
+            <div class="box">Project L</div>
+            <div class="box">Project O</div>
+
+            <div class="task-list"></div>
+            <button
+              class="button is-small is-light add-card-btn"
+              data-status="In Progress"
+            >
+              + Add a card
+            </button>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box column-box">
+            <h2 class="title">Blocked</h2>
+            <div class="box">Project X</div>
+            <div class="box">Project T</div>
+            <div class="task-list"></div>
+            <button
+              class="button is-small is-light add-card-btn"
+              data-status="Blocked"
+            >
+              + Add a card
+            </button>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box column-box">
+            <h2 class="title">Done</h2>
+            <div class="box">Project N</div>
+            <div class="box">Project L</div>
+            <div class="box">Project O</div>
+            <div class="box">Project P</div>
+            <div class="task-list"></div>
+            <button
+              class="button is-small is-light add-card-btn"
+              data-status="Done"
+            >
+              + Add a card
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="task-modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Nueva Tarea</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <div class="field">
+              <label class="label">Título</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  id="task-title"
+                  placeholder="Título de la tarea"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Descripción</label>
+              <div class="control">
+                <textarea
+                  class="textarea"
+                  id="task-description"
+                  placeholder="Descripción de la tarea"
+                ></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Asignado</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  id="task-assigned"
+                  placeholder="Asignado a"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Prioridad</label>
+              <div class="control">
+                <div class="select">
+                  <select id="task-priority">
+                    <option value="Low">Baja</option>
+                    <option value="Medium" selected>Media</option>
+                    <option value="High">Alta</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Fecha límite</label>
+              <div class="control">
+                <input class="input" type="date" id="task-due-date" />
+              </div>
+            </div>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success" id="save-task-btn">
+              Guardar
+            </button>
+            <button class="button" id="cancel-task-btn">Cancelar</button>
+          </footer>
+        </div>
+      </div>
+    </main>
+    <script src="ta.js"></script>
   </body>
 </html>
