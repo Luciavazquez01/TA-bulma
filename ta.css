@@ -6,10 +6,21 @@ header {
 
 .header{
     display: flex;
-    background-color:aqua; 
+    background-color:rgb(153, 204, 185); 
     align-items: baseline;
 }
 
 .navbar-start{
-    background-color: aqua;
+    background-color: rgb(153, 204, 185);
+
+}
+#add-task-btn {
+  background-color: #051009; 
+  color: white;
+
+}
+#add-task-btn {
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+  padding: 5px 10px; 
 }
