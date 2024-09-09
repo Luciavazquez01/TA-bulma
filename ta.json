@@ -1,5 +1,5 @@
 
-      {
+ {
         "id": 1,
         "name": "Backlog",
         "tasks": [
@@ -69,4 +69,27 @@
           }
         ]
       }
+    "endpoints": {
+    "listTasks": {
+      "method": "GET",
+      "url": "http://localhost:3000/tasks/"
+    },
+    "updateTask": {
+      "method": "PATCH",
+      "url": "http://localhost:3000/tasks/{taskId}"
+    },
+    "createTask": {
+      "method": "POST",
+      "url": "http://localhost:3000/tasks/"
+    },
+    "deleteTask": {
+      "method": "DELETE",
+      "url": "http://localhost:3000/tasks/{taskId}"
+    },
+    "getTaskDetails": {
+      "method": "GET",
+      "url": "http://localhost:3000/tasks/{taskId}"
+    }
+  }
+
     

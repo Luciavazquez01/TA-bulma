@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+
+  document.addEventListener("DOMContentLoaded", () => {
   const addTaskBtn = document.getElementById("add-task-btn");
   const taskModal = document.getElementById("task-modal");
   const closeModalBtn = taskModal.querySelector(".delete");
