@@ -99,5 +99,42 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById('cancel-task-btn').addEventListener('click', function() {
   
   });
-  
+  function loadTasks() {
+  fetch('https://api.example.com/tasks') 
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json(); 
+      })
+      .then(tasks => {
+          displayTasks(tasks); 
+      })
+      .catch(error => {
+          console.error('There has been a problem with your fetch operation:', error);
+      });
+}
+function displayTasks(tasks) {
+  const taskContainer = document.getElementById('task-container'); 
+  taskContainer.innerHTML = '';
+
+  tasks.forEach(task => {
+      
+      const taskElement = document.createElement('div');
+      taskElement.classList.add('task'); 
+
+    
+      taskElement.innerHTML = `
+          <h3>${task.title}</h3>
+          <p>${task.description}</p>
+          <p><strong>Asignado:</strong> ${task.assigned}</p>
+          <p><strong>Prioridad:</strong> ${task.priority}</p>
+          <p><strong>Estado:</strong> ${task.state}</p>
+          <p><strong>Fecha límite:</strong> ${task.dueDate}</p>
+      `;
+      taskContainer.appendChild(taskElement);
+  });
+}
+document.addEventListener('DOMContentLoaded', loadTasks);
+
 });

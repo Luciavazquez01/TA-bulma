@@ -1,8 +1,5 @@
 {
-  "columns": [
-    {
-      "id": 1,
-      "name": "Backlog",
+  
       "tasks": [
         {
           "id": 1,
@@ -12,13 +9,7 @@
           "priority": "Alta",
           "status": "Backlog",
           "deadline": "2024-09-15"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "To Do",
-      "tasks": [
+        },
         {
           "id": 2,
           "title": "Hacer BD",
@@ -27,13 +18,7 @@
           "priority": "Alta",
           "status": "To Do",
           "deadline": "2024-09-10"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "name": "In Progress",
-      "tasks": [
+        },
         {
           "id": 3,
           "title": "Mejorar diseño",
@@ -42,13 +27,7 @@
           "priority": "Alta",
           "status": "In Progress",
           "deadline": "2024-09-20"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Blocked",
-      "tasks": [
+        },
         {
           "id": 4,
           "title": "Mejorar BD",
@@ -57,13 +36,7 @@
           "priority": "Baja",
           "status": "Blocked",
           "deadline": "2024-09-25"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Done",
-      "tasks": [
+        },
         {
           "id": 5,
           "title": "Revisar clases",
@@ -73,29 +46,8 @@
           "status": "Done",
           "deadline": "2024-09-30"
         }
-      ]
-    }
-  ],
-  "endpoints": {
-    "listTasks": {
-      "method": "GET",
-      "url": "http://localhost:3000/tasks/"
-    },
-    "updateTask": {
-      "method": "PATCH",
-      "url": "http://localhost:3000/tasks/{taskId}"
-    },
-    "createTask": {
-      "method": "POST",
-      "url": "http://localhost:3000/tasks/"
-    },
-    "deleteTask": {
-      "method": "DELETE",
-      "url": "http://localhost:3000/tasks/{taskId}"
-    },
-    "getTaskDetails": {
-      "method": "GET",
-      "url": "http://localhost:3000/tasks/{taskId}"
-    }
-  }
+      
+    
+  ]
+  
 }
