@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded"), () => {
+document.addEventListener("DOMContentLoaded", () => {
   const addTaskBtn = document.getElementById("add-task-btn");
   const taskModal = document.getElementById("task-modal");
   const closeModalBtn = taskModal.querySelector(".delete");
@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded"), () => {
 
     const newCard = document.createElement("div");
     newCard.className = "box";
+    newCard.id = `task-${Date.now()}`; // Unique ID for drag and drop
     newCard.textContent = `${title} - ${description} - ${assigned} - ${priority} - ${dueDate}`;
     newCard.draggable = true;
     newCard.addEventListener("dragstart", dragStart);
@@ -93,38 +94,26 @@ document.addEventListener("DOMContentLoaded"), () => {
     taskList.addEventListener("dragleave", dragLeave);
     taskList.addEventListener("drop", dragDrop);
   });
-  document.getElementById('save-task-btn').addEventListener('click', function() {
-  });
-  
-  document.getElementById('cancel-task-btn').addEventListener('click', function() {
-  
-  });
 
-
-function loadTasks() {
-  fetch('https://api.example.com/tasks') 
-      .then(response => response.json()) 
+  function loadTasks() {
+    fetch('https://api.example.com/tasks')
+      .then(response => response.json())
       .then(tasks => {
-          
-          const taskContainer = document.getElementById('task-container');
+        const taskContainer = document.getElementById('task-container');
+        taskContainer.innerHTML = '';
 
-          taskContainer.innerHTML = '';
-
-          tasks.forEach(task => {
-           
-              const taskElement = document.createElement('div');
-              taskElement.className = 'task'; 
-              taskElement.innerHTML = `
-                  <h3>${task.title}</h3>
-                  <p>${task.description}</p>
-              `;
-              
-              taskContainer.appendChild(taskElement);
-          });
+        tasks.forEach(task => {
+          const taskElement = document.createElement('div');
+          taskElement.className = 'task';
+          taskElement.innerHTML = `
+            <h3>${task.title}</h3>
+            <p>${task.description}</p>
+          `;
+          taskContainer.appendChild(taskElement);
+        });
       })
       .catch(error => console.error('Error:', error));
-}
+  }
 
-document.addEventListener('DOMContentLoaded', loadTasks);
-
-}
+  loadTasks();
+});
