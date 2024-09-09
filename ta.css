@@ -4,23 +4,72 @@ header {
   gap: 10px;
 }
 
-.header{
-    display: flex;
-    background-color:rgb(153, 204, 185); 
-    align-items: baseline;
+.header {
+  display: flex;
+  background-color: rgb(153, 204, 185); 
+  align-items: baseline;
 }
 
-.navbar-start{
-    background-color: rgb(153, 204, 185);
-
+.navbar-start {
+  background-color: rgb(153, 204, 185);
 }
+
 #add-task-btn {
   background-color: #051009; 
   color: white;
-
-}
-#add-task-btn {
   margin-top: 20px; 
   margin-bottom: 20px; 
   padding: 5px 10px; 
+}
+
+.add-card-btn {
+  background-color: #051009; 
+  color: white;
+  margin: 10px 0; 
+}
+
+.add-card-btn:hover {
+  background-color: #032000; 
+}
+
+.is-dragging {
+  opacity: 0.5;
+  border: 2px dashed #000;
+}
+
+.task-list {
+  min-height: 100px;
+  border: 2px dashed #ccc;
+  padding: 10px;
+}
+
+.task-list .box {
+  cursor: grab;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin: 5px 0;
+}
+
+.task-list .box.is-dragging {
+  opacity: 0.5;
+}
+
+.drag-over {
+  border: 2px solid #9dead9;
+}
+
+.column {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 10px;
+}
+
+.column-box {
+  min-height: 200px;
+}
+
+.title {
+  margin-bottom: 10px;
 }

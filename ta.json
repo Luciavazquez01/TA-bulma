@@ -1,75 +1,82 @@
-
- {
-        "id": 1,
-        "name": "Backlog",
-        "tasks": [
-          {
-            "id": 1,
-            "title": "Project A",
-            "description": "agregar clases",
-            "assignedTo": "Lucia",
-            "priority": "Alta",
-            "deadline": "2024-09-15"
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "name": "To Do",
-        "tasks": [
-          {
-            "id": 2,
-            "title": "hacer bd",
-            "description": "Project",
-            "assignedTo": "Felipe",
-            "priority": "Alta",
-            "deadline": "2024-09-10"
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "name": "In Progress",
-        "tasks": [
-          {
-            "id": 3,
-            "title": "Project d",
-            "description": "mejorar diseño",
-            "assignedTo": "Stefano",
-            "priority": "Alta",
-            "deadline": "2024-09-20"
-          }
-        ]
-      },
-      {
-        "id": 4,
-        "name": "Blocked",
-        "tasks": [
-          {
-            "id": 4,
-            "title": "Project f ",
-            "description": "mejorar bd",
-            "assignedTo": "Juano",
-            "priority": "Baja",
-            "deadline": "2024-09-25"
-          }
-        ]
-      },
-      {
-        "id": 5,
-        "name": "Done",
-        "tasks": [
-          {
-            "id": 5,
-            "title": "Project N",
-            "description": "revisar clases",
-            "assignedTo": "Iara",
-            "priority": "Media",
-            "deadline": "2024-09-30"
-          }
-        ]
-      }
-    "endpoints": {
+{
+  "columns": [
+    {
+      "id": 1,
+      "name": "Backlog",
+      "tasks": [
+        {
+          "id": 1,
+          "title": "Project A",
+          "description": "Agregar clases",
+          "assignedTo": "Lucia",
+          "priority": "Alta",
+          "status": "Backlog",
+          "deadline": "2024-09-15"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "To Do",
+      "tasks": [
+        {
+          "id": 2,
+          "title": "Hacer BD",
+          "description": "Crear base de datos",
+          "assignedTo": "Felipe",
+          "priority": "Alta",
+          "status": "To Do",
+          "deadline": "2024-09-10"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "In Progress",
+      "tasks": [
+        {
+          "id": 3,
+          "title": "Mejorar diseño",
+          "description": "Actualizar interfaz",
+          "assignedTo": "Stefano",
+          "priority": "Alta",
+          "status": "In Progress",
+          "deadline": "2024-09-20"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Blocked",
+      "tasks": [
+        {
+          "id": 4,
+          "title": "Mejorar BD",
+          "description": "Optimizar base de datos",
+          "assignedTo": "Juano",
+          "priority": "Baja",
+          "status": "Blocked",
+          "deadline": "2024-09-25"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Done",
+      "tasks": [
+        {
+          "id": 5,
+          "title": "Revisar clases",
+          "description": "Actualizar las clases",
+          "assignedTo": "Iara",
+          "priority": "Media",
+          "status": "Done",
+          "deadline": "2024-09-30"
+        }
+      ]
+    }
+  ],
+  "endpoints": {
     "listTasks": {
       "method": "GET",
       "url": "http://localhost:3000/tasks/"
@@ -91,5 +98,4 @@
       "url": "http://localhost:3000/tasks/{taskId}"
     }
   }
-
-    
+}
