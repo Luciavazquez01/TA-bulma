@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded"), () => {
   const addTaskBtn = document.getElementById("add-task-btn");
   const taskModal = document.getElementById("task-modal");
   const closeModalBtn = taskModal.querySelector(".delete");
@@ -99,42 +99,32 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById('cancel-task-btn').addEventListener('click', function() {
   
   });
-  function loadTasks() {
+
+
+function loadTasks() {
   fetch('https://api.example.com/tasks') 
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json(); 
-      })
+      .then(response => response.json()) 
       .then(tasks => {
-          displayTasks(tasks); 
+          
+          const taskContainer = document.getElementById('task-container');
+
+          taskContainer.innerHTML = '';
+
+          tasks.forEach(task => {
+           
+              const taskElement = document.createElement('div');
+              taskElement.className = 'task'; 
+              taskElement.innerHTML = `
+                  <h3>${task.title}</h3>
+                  <p>${task.description}</p>
+              `;
+              
+              taskContainer.appendChild(taskElement);
+          });
       })
-      .catch(error => {
-          console.error('There has been a problem with your fetch operation:', error);
-      });
+      .catch(error => console.error('Error:', error));
 }
-function displayTasks(tasks) {
-  const taskContainer = document.getElementById('task-container'); 
-  taskContainer.innerHTML = '';
 
-  tasks.forEach(task => {
-      
-      const taskElement = document.createElement('div');
-      taskElement.classList.add('task'); 
-
-    
-      taskElement.innerHTML = `
-          <h3>${task.title}</h3>
-          <p>${task.description}</p>
-          <p><strong>Asignado:</strong> ${task.assigned}</p>
-          <p><strong>Prioridad:</strong> ${task.priority}</p>
-          <p><strong>Estado:</strong> ${task.state}</p>
-          <p><strong>Fecha límite:</strong> ${task.dueDate}</p>
-      `;
-      taskContainer.appendChild(taskElement);
-  });
-}
 document.addEventListener('DOMContentLoaded', loadTasks);
 
-});
+}
